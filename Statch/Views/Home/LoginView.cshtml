@@ -1,0 +1,79 @@
+﻿
+@{ ViewData["Title"] = "Log In Page";}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width,
+                                           initial-scale = 1" />
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <div class="heading">
+        <br />
+        <h1 class="text-center font-weight-bold">Statch</h1>
+        <h3 class="text-center">Log In</h3>
+        <hr />
+    </div>
+    @if (TempData["Success"] != null)
+    {
+<h5 class="text-success text-center">@TempData["Success"]</h5>
+                <br />}
+    <div class="container">
+        <div class="row gutters-sm">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center">
+                            <form method="post" action="~/Home/Login">
+                                <fieldset class="loginFieldset">
+                                    <br />
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            <div class="form-group">
+                                                <h6>Email:</h6>
+                                                <input class="form-control rounded-pill border-3 border-primary" placeholder="Email" type="email" name="txtLoginID" id="txtLoginID" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            <div class="form-group col-md-12">
+                                                <h6>Password:</h6>
+                                                <input class="form-control rounded-pill border-3 border-primary" placeholder="Password" type="password" name="txtPassword" id="txtPassword" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            <div class="form-group">
+                                                <input type="submit" id="btnLogin" value="Login" class="btn btn-primary rounded-pill" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            <span style="color:red  ;">@TempData["Message"]</span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="text-center">
+            <br />
+            <span class="font-weight-bold">Don't Have an Account?</span>
+            <br />
+            <a href="~/User/Create">Create an Account</a>
+        </div>
+    </div>
+</body>
+</html>
