@@ -117,9 +117,9 @@ namespace Statch.DAL
         {
             SqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = @"INSERT INTO Users (UserName, Salutation, EmailAddr, Password, Score, Badges, DateCreated)
+            cmd.CommandText = @"INSERT INTO Users (UserName, Salutation, EmailAddr, Password, DateCreated)
                                 OUTPUT INSERTED.UserID
-                                VALUES(@name, @salutation, @email, @password, '0', '0', @date)";
+                                VALUES(@name, @salutation, @email, @password, @date)";
 
             cmd.Parameters.AddWithValue("@name", user.UserName);
             cmd.Parameters.AddWithValue("@salutation", user.Salutation);

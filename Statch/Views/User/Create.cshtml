@@ -1,0 +1,70 @@
+﻿@model Statch.Models.Users
+
+@{ ViewData["Title"] = "User Registration"; }
+<br />
+<h3 class="text-center">User Registration</h3>
+<div class="container">
+    <div class="row gutters-sm">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center">
+                        <form asp-action="Create">
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <h6>Name:</h6>
+                                        <select asp-for="Salutation"
+                                                asp-items="@ViewData["SalutationList"]
+                            as List<SelectListItem>"
+                                                class="form-control rounded-pill border-3 border-primary">
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-8 col-sm-10">
+                                        <h6>‎</h6>
+                                        <input asp-for="UserName" class="form-control rounded-pill border-3 border-primary" placeholder="Enter Name" />
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="form-group col-md-12">
+                                        <h6>Email:</h6>
+                                        <input asp-for="EmailAddr" class="form-control rounded-pill border-3 border-primary" placeholder="Enter Email" />
+                                        <span asp-validation-for="EmailAddr" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="form-group col-md-12">
+                                        <h6>Password:</h6>
+                                        <input asp-for="Password" class="form-control rounded-pill border-3 border-primary" placeholder="Enter Password" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="form-group">
+                                        <input type="submit" value="Create Account" class="btn btn-primary rounded-pill" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container-fluid">
+    <div class="text-center">
+        <span>Already Have an Account?</span>
+        <br />
+        <a href="~/Home/LoginView">Proceed to Log In</a>
+    </div>
+</div>
