@@ -70,7 +70,7 @@ namespace Statch.Controllers
                 return RedirectToAction("LoginView");
             }
         }
-        public ActionResult userLogOut()
+        public ActionResult LogOut()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");

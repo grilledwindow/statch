@@ -1,0 +1,56 @@
+﻿@model Statch.Models.Users
+
+@{
+    ViewData["Title"] = "Profile";
+}
+<br />
+<h3 class="text-center">Profile Details</h3>
+<hr />
+@if (TempData["Success"] != null)
+{
+    <h5 class="text-success text-center">@TempData["Success"]</h5>
+    <br />
+}
+<div class="container">
+    <!--Maybe add feature to wish user on account creation anniversary-->
+    <div class="row gutters-sm">
+        <div class="col-md-5">
+            <div class="card h-100">
+                <h5 class="card-header text-white" style="background-color: #007bff; ">👤 User Profile</h5>
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="align-items-center text-center">
+                            <h5 class="text-center">User @Model.UserID</h5>
+                            <br />
+                            <img src="~/images/profile-photo-placeholder.jpg" alt="profile_placeholder" class="rounded-circle" width="165">
+                            <h4 class="text-center"><br /><br />@Html.DisplayFor(model => model.Salutation). @Html.DisplayFor(model => model.UserName)</h4>
+                            <p class="text-primary text-center">@Html.DisplayFor(model => model.EmailAddr)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br /><br />
+        <div class="col-md-7">
+            <div class="card">
+                <h5 class="card-header text-white" style="background-color: #007bff; ">📋 User Details</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6>@Html.DisplayNameFor(model => model.DateCreated):</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">@Model.DateCreated.Date.ToString("dd-MMMM-yyyy")</div>
+                    </div>
+                    <hr />
+                    <div class="text-center">
+                        <a class="btn btn-danger text-white rounded-pill mr-2" asp-action="LogOut" asp-controller="Home">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="text-center">
+    <a class="btn btn-primary text-white rounded-pill mr-2" asp-action="Index" asp-controller="Home">Home</a>
+</div>
