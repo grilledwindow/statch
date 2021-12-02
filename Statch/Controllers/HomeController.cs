@@ -28,6 +28,11 @@ namespace Statch.Controllers
             return View();
         }
 
+        public IActionResult Tool()
+        {
+            return View();
+        }
+
         public IActionResult LoginView()
         {
             if (HttpContext.Session.GetString("Role") == "User")
