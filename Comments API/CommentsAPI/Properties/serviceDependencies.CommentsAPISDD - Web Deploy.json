@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/sddcommentsapidbserver/databases/SDDCommentsAPI_db",
+      "type": "mssql.azure",
+      "connectionId": "comments.db",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
