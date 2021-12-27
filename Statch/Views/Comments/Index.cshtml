@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Statch.Models.Comments>
+
+@{
+    ViewData["Title"] = "Comments";
+}
+<br />
+<h2 class="PageTitle text-center font-weight-bold">Discussion Board</h2>
+@if (ViewData["Role"] == null)
+{
+    <h5 class="text-center font-weight-normal">🛑 Create an Account or Log In to comment in the Discussion Board! 🛑</h5>
+}
+
+<hr />
+
+@if (Convert.ToString(ViewData["Role"]) == "User")
+{
+    <br />
+    <a class="btn btn-primary text-white rounded mr-2" asp-action="Create" asp-controller="Comments">Post a Comment</a>
+    <hr />
+}
+@if (Model.ToList().Count > 0)
+{
+    @foreach (var item in Model.OrderByDescending(c => c.Id).ToList())
+    {
+        @if (item.Comment != null)
+        {
+            <h6>@item.UserName <small class="text-muted font-weight-normal">Commented</small></h6>
+            <p>@item.Comment</p>
+            <hr />
+        }
+    }
+}
+
+else
+{
+    <span style="color:red">No Comments found!</span>
+    <hr />
+}
+
+<br />
+<div class="text-center">
+    <a class="btn btn-primary text-white rounded-pill mr-2" asp-action="Index" asp-controller="Home">Home</a>
+</div>
+

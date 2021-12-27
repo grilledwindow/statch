@@ -1,0 +1,25 @@
+﻿@model Statch.Models.Comments
+
+@{
+    ViewData["Title"] = "Comments";
+}
+<br />
+<h2 class="PageTitle text-center font-weight-bold">Post Comment</h2>
+<hr />
+<br />
+<form asp-action="Create" asp-controller="Comments">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <textarea asp-for="Comment" class="form-control" id="commentArea" rows="5" placeholder="Enter your Comment..." aria-describedby="textHelp"></textarea>
+        <small id="textHelp" class="text-muted">All comments posted are publicly available and will be posted under your name.</small>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input type="submit" value="Post" class="btn btn-primary text-white rounded-pill" />
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<hr />
